@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server';  
-import { v2 as cloudinary, UploadStream } from 'cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
 import { auth } from '@clerk/nextjs/server';
 
 // Configuration
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest){
         const file = formData.get('file') as File | null;
         
         if(!file){
-            return NextResponse.json({error: "File ont found"}, {status: 400});
+            return NextResponse.json({error: "File not found"}, {status: 400});
         }
 
         const bytes = await file.arrayBuffer();

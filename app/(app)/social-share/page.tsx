@@ -43,7 +43,7 @@ const socialFormats = {
             if(!response.ok) throw new Error("Failed to upload image");
 
             const data = await response.json();
-            setUploadedImage(data.public_id);
+            setUploadedImage(data.publicId);
 
 
         } catch (error) {
@@ -70,7 +70,7 @@ const socialFormats = {
             link.click();
             document.body.removeChild(link);
             window.URL.revokeObjectURL(url);
-            document.body.removeChild(link);
+            // document.body.removeChild(link);
         })
     }
 
